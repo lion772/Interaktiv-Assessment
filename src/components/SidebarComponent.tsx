@@ -1,5 +1,25 @@
+import db from "../db.json";
+import { Course } from "../util/Course";
+import CourseDetailComponent from "./CourseDetail";
 const SidebarComponent = () => {
-    return <div style={{ backgroundColor: "beige" }}>Sidebar component</div>;
+    const coursesData: Course[] = db.courses;
+
+    const courseList = coursesData.map((course) => (
+        <CourseDetailComponent key={course.id} course={course} />
+    ));
+
+    return (
+        <>
+            <div
+                className="d-flex px-3"
+                style={{ backgroundColor: "gainsboro" }}
+            >
+                Navigation
+            </div>
+
+            <div>{courseList}</div>
+        </>
+    );
 };
 
 export default SidebarComponent;

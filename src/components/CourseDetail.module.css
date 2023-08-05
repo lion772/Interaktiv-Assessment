@@ -1,0 +1,23 @@
+.navigation {
+    background-color: gainsboro;
+}
+
+.imageContainer {
+    border: 1px solid red;
+    padding: 12px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.imageContainer p {
+    font-size: 15px;
+}
+
+.imageContainer img {
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+}
