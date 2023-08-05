@@ -1,0 +1,32 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "Money Laundering and Frau Prevention",
+            "lessons": [
+                {
+                    "id": "lesson1",
+                    "topic": "Money Laundering and Frau Prevention - private customer advice"
+                }
+            ],
+            "imagePath": "/test.jpg"
+        },
+        {
+            "id": 2,
+            "title": "IT security and information security",
+            "description": "IT security and information security (V1.01.3)",
+            "imagePath": "/test.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Data Protection",
+            "description": "",
+            "imagePath": "/test.jpg"
+        },
+        {
+            "id": 4,
+            "title": "WpHG compliance basics",
+            "imagePath": "/test.jpg"
+        }
+    ]
+}

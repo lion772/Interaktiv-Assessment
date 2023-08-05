@@ -5,21 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavbarComponent";
 import HomepageDescription from "./components/HomepageDescription";
 import SidebarComponent from "./components/SidebarComponent";
-import { Container } from "semantic-ui-react";
 import LearningCourses from "./components/LearningCourses";
+import Container from "./components/Container";
 
 function App() {
     return (
         <div className="App">
             <NavbarComponent>
                 <HomepageDescription />
-                
-                <Container textAlign="left">
-                    <SidebarComponent />
-                </Container>
-                <Container textAlign="right">
-                    <LearningCourses />
-                </Container>
+                <Container
+                    sidebarComponent={<SidebarComponent />}
+                    learningCoursesComponent={<LearningCourses />}
+                />
             </NavbarComponent>
         </div>
     );
