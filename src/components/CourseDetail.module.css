@@ -3,13 +3,13 @@
 }
 
 .imageContainer {
-    border: 1px solid red;
     padding: 12px;
-    margin-bottom: 8px;
+    margin: 8px 0 8px;
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    background-color: white;
 }
 
 .imageContainer p {
