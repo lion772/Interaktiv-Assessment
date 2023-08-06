@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { useFetchCoursesQuery } from "../store";
 import { Course } from "../util/Course";
 import Contact from "./Contact";
 import CourseDetailComponent from "./CourseDetail";

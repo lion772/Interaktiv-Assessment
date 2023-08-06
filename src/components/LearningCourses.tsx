@@ -6,7 +6,6 @@ interface LearningCourseInt {
 }
 
 const LearningCourses: FC<LearningCourseInt> = ({ courses }) => {
-    console.log(courses);
     return (
         <div style={{ backgroundColor: "gray" }}>
             Learning courses component{" "}
