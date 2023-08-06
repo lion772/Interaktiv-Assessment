@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavbarComponent";
 import HomepageDescription from "./components/HomepageDescription";
 import SidebarComponent from "./components/SidebarComponent";
-import LearningCourses from "./components/LearningCourses";
 import HomeComponent from "./components/HomeComponent";
 
 function App() {

@@ -5,7 +5,6 @@ import LearningCourses from "./LearningCourses";
 
 const HomeComponent = () => {
     const { data, error, isFetching } = useFetchCoursesQuery("courses");
-    console.log(useFetchCoursesQuery("courses"));
 
     let content = <></>;
     if (isFetching) {
