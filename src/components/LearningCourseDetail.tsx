@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Course } from "../util/Course";
 import classes from "./LearningCourseDetail.module.css";
+import CourseProgress from "./CourseProgress";
 
 interface LearningCourseDetailInt {
     course: Course;
@@ -27,10 +28,13 @@ const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
                         />
                     </div>
                     <div
-                        className="col-md-11 ms-3"
+                        className="col-md-7 ms-3"
                         style={{ textAlign: "initial" }}
                     >
                         {content}
+                    </div>
+                    <div className="col-md-4">
+                        <CourseProgress />
                     </div>
                 </div>
             </div>
