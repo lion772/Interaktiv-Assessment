@@ -24,7 +24,7 @@ const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
                         {lessons.length > 1 && (
                             <img
                                 src={process.env.PUBLIC_URL + course.imagePath}
-                                alt={course.title}
+                                alt={course.category}
                             />
                         )}
                     </div>
