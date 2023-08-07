@@ -2,7 +2,7 @@
     "courses": [
         {
             "id": "1",
-            "title": "Money Laundering and Fraud Prevention",
+            "category": "Money Laundering and Fraud Prevention",
             "lessons": [
                 {
                     "id": "lesson1",
@@ -21,7 +21,7 @@
         },
         {
             "id": "2",
-            "title": "IT security and information security",
+            "category": "IT security and information security",
             "lessons": [
                 {
                     "id": "lesson1",
@@ -40,7 +40,7 @@
         },
         {
             "id": "3",
-            "title": "Data Protection",
+            "category": "Data Protection",
             "lessons": [
                 {
                     "id": "lesson1",
@@ -63,7 +63,7 @@
         },
         {
             "id": "4",
-            "title": "WpHG compliance",
+            "category": "WpHG compliance",
             "lessons": [
                 {
                     "id": "lesson1",

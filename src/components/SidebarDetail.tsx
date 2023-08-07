@@ -11,9 +11,9 @@ const SidebarDetailComponent: FC<SidebarDetailInt> = ({ course }) => {
         <div className={classes.imageContainer}>
             <img
                 src={process.env.PUBLIC_URL + course.imagePath}
-                alt={course.title}
+                alt={course.category}
             />
-            <p>{course.title}</p>
+            <p>{course.category}</p>
         </div>
     );
 };

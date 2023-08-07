@@ -1,6 +1,6 @@
 export interface Course {
     id: string;
-    title: string;
+    category: string;
     lessons: {
         id: string;
         topic: string;
