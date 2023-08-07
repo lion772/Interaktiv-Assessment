@@ -1,7 +1,7 @@
 export interface Course {
     id: string;
     category: string;
-    lessons: {
+    modules: {
         id: string;
         topic: string;
     }[];

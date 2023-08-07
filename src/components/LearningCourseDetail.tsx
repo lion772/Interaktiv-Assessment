@@ -7,12 +7,12 @@ interface LearningCourseDetailInt {
 }
 
 const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
-    const { lessons } = course;
+    const { modules } = course;
     let content: any;
 
-    if (lessons.length > 1) {
-        content = lessons.map((lesson) => (
-            <p key={lesson.id}>{lesson.topic}</p>
+    if (modules.length > 1) {
+        content = modules.map((module) => (
+            <p key={module.id}>{module.topic}</p>
         ));
     }
 
@@ -21,12 +21,10 @@ const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
             <div className="row">
                 <div className={classes.imageContainer}>
                     <div className="col-md-1">
-                        {lessons.length > 1 && (
-                            <img
-                                src={process.env.PUBLIC_URL + course.imagePath}
-                                alt={course.category}
-                            />
-                        )}
+                        <img
+                            src={process.env.PUBLIC_URL + course.imagePath}
+                            alt={course.category}
+                        />
                     </div>
                     <div
                         className="col-md-11 ms-3"
