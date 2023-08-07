@@ -3,7 +3,7 @@
         {
             "id": "1",
             "category": "Money Laundering and Fraud Prevention",
-            "lessons": [
+            "modules": [
                 {
                     "id": "lesson1",
                     "topic": "Intensification of money laundering prevention - private customer advice"
@@ -22,7 +22,7 @@
         {
             "id": "2",
             "category": "IT security and information security",
-            "lessons": [
+            "modules": [
                 {
                     "id": "lesson1",
                     "topic": "IT security basics (V1.01.3)"
@@ -41,7 +41,7 @@
         {
             "id": "3",
             "category": "Data Protection",
-            "lessons": [
+            "modules": [
                 {
                     "id": "lesson1",
                     "topic": "Basic training data protection (V2.0)"
@@ -64,7 +64,7 @@
         {
             "id": "4",
             "category": "WpHG compliance",
-            "lessons": [
+            "modules": [
                 {
                     "id": "lesson1",
                     "topic": "WpHG compliance basics (V1.00.3)"
