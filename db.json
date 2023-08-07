@@ -6,7 +6,15 @@
             "lessons": [
                 {
                     "id": "lesson1",
-                    "topic": "Money Laundering and Frau Prevention - private customer advice"
+                    "topic": "Intensification of money laundering prevention - private customer advice"
+                },
+                {
+                    "id": "lesson2",
+                    "topic": "Basic training data protection - Prevention of Money Laundering and Terrorist Financing (V3.0)"
+                },
+                {
+                    "id": "lesson3",
+                    "topic": "Advanced training data protection - Prevention of Money Laundering and Terrorist Financing (V3.0)"
                 }
             ],
             "imagePath": "/images/fraud_prevention.png"
@@ -17,7 +25,15 @@
             "lessons": [
                 {
                     "id": "lesson1",
-                    "topic": "IT security and information security (V1.01.3)"
+                    "topic": "IT security basics (V1.01.3)"
+                },
+                {
+                    "id": "lesson2",
+                    "topic": "Basic training IT security and information security (V1.0)"
+                },
+                {
+                    "id": "lesson3",
+                    "topic": "Advanced Training IT security and information security (V1.1)"
                 }
             ],
             "imagePath": "/images/it_security.png"
@@ -29,6 +45,18 @@
                 {
                     "id": "lesson1",
                     "topic": "Basic training data protection (V2.0)"
+                },
+                {
+                    "id": "lesson2",
+                    "topic": "Privacy Basics (V1.00.2)"
+                },
+                {
+                    "id": "lesson3",
+                    "topic": "In-depth training on data protection (V1.0)"
+                },
+                {
+                    "id": "lesson4",
+                    "topic": "Privacy Basics 1.0"
                 }
             ],
             "imagePath": "/images/data_protection.png"
@@ -40,6 +68,10 @@
                 {
                     "id": "lesson1",
                     "topic": "WpHG compliance basics (V1.00.3)"
+                },
+                {
+                    "id": "lesson2",
+                    "topic": "In-depth WpHG - sales representative (V1.00.2)"
                 }
             ],
             "imagePath": "/images/wphg.png"

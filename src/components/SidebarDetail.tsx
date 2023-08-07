@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Course } from "../util/Course";
-import classes from "./CourseDetail.module.css";
+import classes from "./SidebarDetail.module.css";
 
-interface CourseDetailInt {
+interface SidebarDetailInt {
     course: Course;
 }
 
-const CourseDetailComponent: FC<CourseDetailInt> = ({ course }) => {
+const SidebarDetailComponent: FC<SidebarDetailInt> = ({ course }) => {
     return (
         <div className={classes.imageContainer}>
             <img
@@ -18,4 +18,4 @@ const CourseDetailComponent: FC<CourseDetailInt> = ({ course }) => {
     );
 };
 
-export default CourseDetailComponent;
+export default SidebarDetailComponent;
