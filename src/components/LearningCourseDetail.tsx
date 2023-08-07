@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Course } from "../util/Course";
 import classes from "./LearningCourseDetail.module.css";
+import CourseProgress from "./CourseProgress";
 
 interface LearningCourseDetailInt {
     course: Course;
@@ -8,11 +9,21 @@ interface LearningCourseDetailInt {
 
 const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
     const { modules } = course;
+    let courseProgressShow: any;
     let content: any;
 
     if (modules.length > 1) {
         content = modules.map((module) => (
             <p key={module.id}>{module.topic}</p>
+        ));
+        courseProgressShow = modules.map(({ progress, missing }, index) => (
+            <div className={classes.progressContainer}>
+                <CourseProgress
+                    key={index}
+                    progress={progress}
+                    missing={missing}
+                />
+            </div>
         ));
     }
 
@@ -27,11 +38,12 @@ const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
                         />
                     </div>
                     <div
-                        className="col-md-11 ms-3"
+                        className={"col-md-6 ms-1 " + classes.modulesContainer}
                         style={{ textAlign: "initial" }}
                     >
                         {content}
                     </div>
+                    <div className={"col-md-5"}>{courseProgressShow}</div>
                 </div>
             </div>
         </div>

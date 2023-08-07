@@ -4,6 +4,8 @@ export interface Course {
     modules: {
         id: string;
         topic: string;
+        progress: number;
+        missing: number;
     }[];
     imagePath: string;
 }
