@@ -10,9 +10,9 @@ const HomepageDescription = () => {
                 </div>
                 <div
                     className="col-md-3 p-1 d-flex"
-                    style={{ backgroundColor: "gray" }}
+                    style={{ backgroundColor: "gray", color: "white" }}
                 >
-                    <p className="mx-2">Admin</p>
+                    <p className="mx-2">admin</p>
                 </div>
             </div>
         </div>

@@ -1,0 +1,20 @@
+.imageContainer {
+    padding: 20px;
+    margin: 4px 0 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: self-start;
+    background-color: white;
+}
+
+.imageContainer p {
+    font-size: 16px;
+    color: gray;
+    font-weight: bold;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}

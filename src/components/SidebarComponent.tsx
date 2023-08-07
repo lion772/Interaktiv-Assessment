@@ -1,15 +1,15 @@
 import { FC } from "react";
 import { Course } from "../util/Course";
 import Contact from "./Contact";
-import CourseDetailComponent from "./CourseDetail";
+import SidebarDetailComponent from "./SidebarDetail";
 
 interface SidebarComponentInt {
     courses: Course[];
 }
 
 const SidebarComponent: FC<SidebarComponentInt> = ({ courses }) => {
-    const courseDetail = (courses as Course[]).map((course) => (
-        <CourseDetailComponent key={course.id} course={course} />
+    const sidebarDetail = (courses as Course[]).map((course) => (
+        <SidebarDetailComponent key={course.id} course={course} />
     ));
     return (
         <>
@@ -19,7 +19,7 @@ const SidebarComponent: FC<SidebarComponentInt> = ({ courses }) => {
             >
                 Navigation
             </div>
-            <div>{courseDetail}</div>
+            <div>{sidebarDetail}</div>
             <Contact />
         </>
     );
