@@ -1,5 +1,5 @@
 .imageContainer {
-    padding: 20px;
+    padding: 14px;
     margin: 4px 0 4px;
     display: flex;
     flex-direction: row;
@@ -8,13 +8,25 @@
     background-color: white;
 }
 
-.imageContainer p {
-    font-size: 16px;
+.modulesContainer p {
+    font-size: 13px;
     color: gray;
     font-weight: bold;
+    padding: 8px 0;
 }
 
 img {
     width: 40px;
     height: 40px;
+}
+
+.progressContainer {
+    padding: 6px;
+}
+
+.progressContainer p {
+    margin-right: 2px;
+    font-size: 9px;
+    text-align: start;
+    color: gray;
 }
