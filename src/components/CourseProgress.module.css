@@ -1,0 +1,18 @@
+.courseProgress {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3px;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.circle.filled {
+    background-color: yellow;
+}
