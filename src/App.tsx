@@ -6,14 +6,17 @@ import NavbarComponent from "./components/NavbarComponent";
 import HomepageDescription from "./components/HomepageDescription";
 import SidebarComponent from "./components/SidebarComponent";
 import HomeComponent from "./components/HomeComponent";
+import Root from "./Root";
 
 function App() {
     return (
         <div className="App">
-            <NavbarComponent>
-                <HomepageDescription />
-                <HomeComponent />
-            </NavbarComponent>
+            <Root>
+                <NavbarComponent>
+                    <HomepageDescription />
+                    <HomeComponent />
+                </NavbarComponent>
+            </Root>
         </div>
     );
 }
