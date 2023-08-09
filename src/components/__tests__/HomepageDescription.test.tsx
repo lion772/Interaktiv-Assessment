@@ -8,11 +8,13 @@ describe("HomepageDescription Component", () => {
     });
     test("renders the correct text content in the corresponding classes", () => {
         // Find the first div containing the text content
-        const firstDiv = wrapper.find(".col-md-9 p");
-        expect(firstDiv.text()).toEqual("Home Page → e-Learning Courses");
-
+        expect(wrapper.find(".col-md-9 p").text()).toEqual(
+            "Home Page → e-Learning Courses"
+        );
         // Find the second div containing the text content
-        const secondDiv = wrapper.find(".col-md-3 p");
-        expect(secondDiv.text()).toEqual("admin");
+        expect(wrapper.find(".col-md-3 p").text()).toEqual("admin");
+        // Check if specific text elements are present
+        expect(wrapper.find(".col-md-3 p").length).toBe(1);
+        expect(wrapper.find(".col-md-9 p").length).toBe(1);
     });
 });
