@@ -17,12 +17,8 @@ const LearningCourseDetail: FC<LearningCourseDetailInt> = ({ course }) => {
             <p key={module.id}>{module.topic}</p>
         ));
         courseProgressShow = modules.map(({ progress, missing }, index) => (
-            <div className={classes.progressContainer}>
-                <CourseProgress
-                    key={index}
-                    progress={progress}
-                    missing={missing}
-                />
+            <div key={index} className={classes.progressContainer}>
+                <CourseProgress progress={progress} missing={missing} />
             </div>
         ));
     }
