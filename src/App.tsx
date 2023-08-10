@@ -11,12 +11,10 @@ import Root from "./Root";
 function App() {
     return (
         <div className="App">
-            <Root>
-                <NavbarComponent>
-                    <HomepageDescription />
-                    <HomeComponent />
-                </NavbarComponent>
-            </Root>
+            <NavbarComponent>
+                <HomepageDescription />
+                <HomeComponent />
+            </NavbarComponent>
         </div>
     );
 }
