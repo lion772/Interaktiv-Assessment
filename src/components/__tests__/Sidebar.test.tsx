@@ -42,6 +42,9 @@ describe("SidebarComponent", () => {
                     <SidebarDetailComponent key={course.id} course={course} />
                 )
             ).toBeTruthy();
+            expect(wrapper.find(SidebarDetailComponent).prop("course")).toEqual(
+                course
+            );
         });
     });
 });
