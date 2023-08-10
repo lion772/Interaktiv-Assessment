@@ -8,23 +8,19 @@ interface CourseProgressInt {
 }
 
 const CourseProgress: FC<CourseProgressInt> = ({ progress, missing }) => {
-    const circles: string[] = [];
     const numberOfCircles: number = 5;
-    let content: any;
-
-    // Calculate the number of filled circles based on progress
+    // Calculate the number of filled circles based on progress - Between 0 and 5
     const filledCircles = Math.ceil((progress / 100) * 5);
 
-    for (let i = 1; i <= numberOfCircles; i++) {
-        const circleClass = i <= filledCircles ? classes.filled : "";
-        circles.push(circleClass);
-    }
+    // Return a list of classes based on filledCircles
+    const circles = Array.from({ length: numberOfCircles }, (_, index) =>
+        index < filledCircles ? classes.filled : ""
+    );
 
-    content = circles.map((circleClass: string, i) => (
+    //render the retrieved classes here
+    const content = circles.map((circleClass: string, i) => (
         <div key={i} className={`${classes.circle} ${circleClass}`}></div>
     ));
-
-    console.log(missing);
 
     return (
         <div className={classes.courseProgress}>
