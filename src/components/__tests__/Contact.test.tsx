@@ -1,5 +1,8 @@
 import { ShallowWrapper, shallow } from "enzyme";
+import { render, screen } from "@testing-library/react";
 import Contact from "../Contact";
+import { store } from "../../store";
+import { Provider } from "react-redux";
 
 describe("Contact Component", () => {
     let wrapper: ShallowWrapper;
@@ -18,5 +21,28 @@ describe("Contact Component", () => {
         expect(wrapper.contains("Content-didactic topics")).toBe(true);
         expect(wrapper.contains("Jane Roe")).toBe(true);
         expect(wrapper.contains("content@example.com")).toBe(true);
+    });
+});
+
+describe("Contact Component using Jest and RTK", () => {
+    test("renders the correct text content in the corresponding classes", () => {
+        render(
+            <Provider store={store}>
+                <Contact />
+            </Provider>
+        );
+
+        // Check if the div containing "Contact" text is present
+        const contactDiv = screen.getByText("Contact");
+        expect(contactDiv).toBeInTheDocument();
+
+        // Check if specific text elements are present
+        expect(screen.getByText("Technical support")).toBeInTheDocument();
+        expect(screen.getByText("John Doe")).toBeInTheDocument();
+        expect(screen.getByText("it@example.com")).toBeInTheDocument();
+
+        expect(screen.getByText("Content-didactic topics")).toBeInTheDocument();
+        expect(screen.getByText("Jane Roe")).toBeInTheDocument();
+        expect(screen.getByText("content@example.com")).toBeInTheDocument();
     });
 });
