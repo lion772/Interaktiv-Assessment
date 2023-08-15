@@ -30,11 +30,18 @@ describe("CourseProgress Component with RTL", () => {
         const filledCircles = Math.ceil((progress / 100) * 5);
 
         // Render the CourseProgress component
-        render(<CourseProgress progress={progress} missing={missing} />);
+        render(
+            <Provider store={store}>
+                <CourseProgress progress={progress} missing={missing} />
+            </Provider>
+        );
 
         // Check if the number of filled circles matches the expected number
         const filledCircleElements = screen.getAllByTestId("filled-circle");
         expect(filledCircleElements).toHaveLength(filledCircles);
+
+        const paragraph = screen.getByText(/to be done by:/i);
+        expect(paragraph).toBeInTheDocument();
 
         // Check if the missing value is displayed correctly
         const missingText = screen.getAllByTestId("left");

@@ -14,10 +14,10 @@ const HomeComponent = () => {
     } else {
         content = (
             <>
-                <div className="col-md-3 p-0">
+                <div className="col-md-3 p-0" data-testid="sidebar-component">
                     <SidebarComponent courses={data as Course[]} />
                 </div>
-                <div className="col-md-9 p-0">
+                <div className="col-md-9 p-0" data-testid="learning-courses">
                     <LearningCourses courses={data as Course[]} />
                 </div>
             </>
