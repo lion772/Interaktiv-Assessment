@@ -1,7 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
+import { render, screen } from "@testing-library/react";
 import LearningCourseDetail from "../LearningCourseDetail";
 import CourseProgress from "../CourseProgress";
+import { Provider } from "react-redux";
+import { store } from "../../store";
 
 describe("LearningCourseDetail Component", () => {
     const mockCourse = {
@@ -45,6 +48,36 @@ describe("LearningCourseDetail Component", () => {
 
         // Check the rendered progress elements if necessary
         const progressContainers = wrapper.find(".progressContainer");
+        expect(progressContainers.length).toBe(mockCourse.modules.length);
+    });
+});
+
+describe("LearningCourseDetail Component jest", () => {
+    const mockCourse = {
+        id: "courseId",
+        category: "Course Category",
+        modules: [
+            { id: "module1", topic: "Module 1", progress: 50, missing: 2 },
+            { id: "module2", topic: "Module 2", progress: 75, missing: 1 },
+        ],
+        imagePath: "/path/to/image",
+    };
+    const modules = mockCourse.modules;
+
+    test("renders the modules and CourseProgress correctly", () => {
+        render(
+            <Provider store={store}>
+                <LearningCourseDetail course={mockCourse} />
+            </Provider>
+        );
+
+        // Check if module topics are rendered correctly
+        modules.forEach((module) => {
+            expect(screen.getByText(module.topic)).toBeInTheDocument();
+        });
+
+        // Check the rendered progress elements if necessary
+        const progressContainers = screen.getAllByTestId("progress");
         expect(progressContainers.length).toBe(mockCourse.modules.length);
     });
 });
