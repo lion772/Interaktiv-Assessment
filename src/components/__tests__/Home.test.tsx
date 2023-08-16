@@ -4,7 +4,7 @@ import SidebarComponent from "../SidebarComponent";
 import LearningCourses from "../LearningCourses";
 import HomeComponent from "../HomeComponent";
 import { Course } from "../../util/Course";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 // Mock the useFetchCoursesQuery hook

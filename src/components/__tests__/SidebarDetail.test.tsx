@@ -1,6 +1,6 @@
 import { ShallowWrapper, shallow } from "enzyme";
 import { Course } from "../../util/Course";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import SidebarDetailComponent from "../SidebarDetail";
 import { Provider } from "react-redux";
 import { store } from "../../store";
