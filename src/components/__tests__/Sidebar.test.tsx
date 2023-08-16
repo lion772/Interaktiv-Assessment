@@ -73,16 +73,6 @@ describe("SidebarComponent with RTL", () => {
         ];
     });
 
-    /* test("shows SidebarDetailComponent", () => {
-        render(
-            <Provider store={store}>
-                <SidebarComponent courses={courses} />
-            </Provider>
-        );
-        const sidebarDetailComponent = screen.getByTestId(`"sidebar-detail"`);
-        expect(sidebarDetailComponent).toBeInTheDocument();
-    }); */
-
     test("check if div with class d-flex is rendered", () => {
         render(
             <Provider store={store}>
