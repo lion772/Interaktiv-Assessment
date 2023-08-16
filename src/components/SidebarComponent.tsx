@@ -9,12 +9,15 @@ interface SidebarComponentInt {
 
 const SidebarComponent: FC<SidebarComponentInt> = ({ courses }) => {
     const sidebarDetail = (courses as Course[]).map((course) => (
-        <SidebarDetailComponent key={course.id} course={course} />
+        <div data-testid={`sidebar-detail-${course.category}`}>
+            <SidebarDetailComponent key={course.id} course={course} />
+        </div>
     ));
     return (
         <>
             <div
                 className="d-flex px-3"
+                data-testid="d-flex"
                 style={{ backgroundColor: "gainsboro" }}
             >
                 Navigation
