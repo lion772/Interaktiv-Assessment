@@ -1,9 +1,11 @@
 import { shallow } from "enzyme";
-import { useFetchCoursesQuery } from "../../store";
+import { store, useFetchCoursesQuery } from "../../store";
 import SidebarComponent from "../SidebarComponent";
 import LearningCourses from "../LearningCourses";
 import HomeComponent from "../HomeComponent";
 import { Course } from "../../util/Course";
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 
 // Mock the useFetchCoursesQuery hook
 jest.mock("../../store", () => {
@@ -74,5 +76,74 @@ describe("HomeComponent", () => {
         expect(wrapper.find(LearningCourses).prop("courses")).toEqual(
             mockCourses
         );
+    });
+});
+
+describe("HomeComponent with RTL", () => {
+    test("renders loading state when fetching data", async () => {
+        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+            data: undefined,
+            error: undefined,
+            isFetching: true,
+        });
+
+        render(
+            <Provider store={store}>
+                <HomeComponent />
+            </Provider>
+        );
+        const loadingText = screen.getByText("loading...");
+        expect(loadingText).toBeInTheDocument();
+    });
+
+    test("renders error state when fetch has an error", async () => {
+        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+            data: undefined,
+            error: true,
+            isFetching: false,
+        });
+
+        render(
+            <Provider store={store}>
+                <HomeComponent />
+            </Provider>
+        );
+        const errorText = screen.getByText("Couldn't fetch courses");
+        expect(errorText).toBeInTheDocument();
+    });
+
+    test("renders SidebarComponent and LearningCourses when data is available", async () => {
+        const mockCourses: Course[] = [
+            {
+                id: "1",
+                category: "Category 1",
+                modules: [
+                    {
+                        id: "module1",
+                        topic: "Module 1",
+                        progress: 50,
+                        missing: 2,
+                    },
+                ],
+                imagePath: "path/to/image1",
+            },
+        ];
+
+        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+            data: mockCourses,
+            error: undefined,
+            isFetching: false,
+        });
+
+        render(
+            <Provider store={store}>
+                <HomeComponent />
+            </Provider>
+        );
+        const sidebarComponent = screen.getByTestId("sidebar-component");
+        const learningCourses = screen.getByTestId("learning-courses");
+
+        expect(sidebarComponent).toBeInTheDocument();
+        expect(learningCourses).toBeInTheDocument();
     });
 });

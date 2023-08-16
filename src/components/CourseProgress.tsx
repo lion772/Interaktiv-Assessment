@@ -19,12 +19,16 @@ const CourseProgress: FC<CourseProgressInt> = ({ progress, missing }) => {
 
     //render the retrieved classes here
     const content = circles.map((circleClass: string, i) => (
-        <div key={i} className={`${classes.circle} ${circleClass}`}></div>
+        <div
+            key={i}
+            className={`${classes.circle} ${circleClass}`}
+            data-testid={circleClass ? "filled-circle" : ""}
+        ></div>
     ));
 
     return (
         <div className={classes.courseProgress}>
-            <p>
+            <p data-testid="left">
                 {missing}min <br />
                 to be done by:
             </p>
