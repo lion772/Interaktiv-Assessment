@@ -8,7 +8,7 @@ interface SidebarDetailInt {
 
 const SidebarDetailComponent: FC<SidebarDetailInt> = ({ course }) => {
     return (
-        <div className={classes.imageContainer}>
+        <div className={classes.imageContainer} data-testid="image-container">
             <img
                 src={process.env.PUBLIC_URL + course.imagePath}
                 alt={course.category}

@@ -4,7 +4,7 @@ import SidebarComponent from "../SidebarComponent";
 import LearningCourses from "../LearningCourses";
 import HomeComponent from "../HomeComponent";
 import { Course } from "../../util/Course";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 // Mock the useFetchCoursesQuery hook
@@ -143,6 +143,7 @@ describe("HomeComponent with RTL", () => {
         const sidebarComponent = screen.getByTestId("sidebar-component");
         const learningCourses = screen.getByTestId("learning-courses");
 
+        //check whether the components are being rendered
         expect(sidebarComponent).toBeInTheDocument();
         expect(learningCourses).toBeInTheDocument();
     });
