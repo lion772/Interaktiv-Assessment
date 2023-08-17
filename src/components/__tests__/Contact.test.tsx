@@ -1,8 +1,7 @@
 import { ShallowWrapper, shallow } from "enzyme";
 import { render, screen } from "@testing-library/react";
 import Contact from "../Contact";
-import { store } from "../../store";
-import { Provider } from "react-redux";
+import Root from "../../Root";
 
 describe("Contact Component", () => {
     let wrapper: ShallowWrapper;
@@ -24,12 +23,12 @@ describe("Contact Component", () => {
     });
 });
 
-describe("Contact Component using Jest and RTK", () => {
+describe("Contact Component using Jest and RTL", () => {
     test("renders the correct text content in the corresponding classes", () => {
         render(
-            <Provider store={store}>
+            <Root>
                 <Contact />
-            </Provider>
+            </Root>
         );
 
         // Check if the div containing "Contact" text is present

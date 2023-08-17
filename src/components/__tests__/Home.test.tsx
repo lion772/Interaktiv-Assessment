@@ -1,11 +1,11 @@
 import { shallow } from "enzyme";
-import { store, useFetchCoursesQuery } from "../../store";
+import { useFetchCoursesQuery } from "../../store";
 import SidebarComponent from "../SidebarComponent";
 import LearningCourses from "../LearningCourses";
 import HomeComponent from "../HomeComponent";
 import { Course } from "../../util/Course";
 import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
+import Root from "../../Root";
 
 // Mock the useFetchCoursesQuery hook
 jest.mock("../../store", () => {
@@ -79,35 +79,35 @@ describe("HomeComponent", () => {
     });
 });
 
+function renderComponent(): void {
+    render(
+        <Root>
+            <HomeComponent />
+        </Root>
+    );
+}
+
 describe("HomeComponent with RTL", () => {
     test("renders loading state when fetching data", async () => {
-        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+        await (useFetchCoursesQuery as jest.Mock).mockReturnValue({
             data: undefined,
             error: undefined,
             isFetching: true,
         });
-
-        render(
-            <Provider store={store}>
-                <HomeComponent />
-            </Provider>
-        );
+        renderComponent();
         const loadingText = screen.getByText("loading...");
         expect(loadingText).toBeInTheDocument();
     });
 
     test("renders error state when fetch has an error", async () => {
-        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+        await (useFetchCoursesQuery as jest.Mock).mockReturnValue({
             data: undefined,
             error: true,
             isFetching: false,
         });
 
-        render(
-            <Provider store={store}>
-                <HomeComponent />
-            </Provider>
-        );
+        renderComponent();
+
         const errorText = screen.getByText("Couldn't fetch courses");
         expect(errorText).toBeInTheDocument();
     });
@@ -129,17 +129,14 @@ describe("HomeComponent with RTL", () => {
             },
         ];
 
-        (useFetchCoursesQuery as jest.Mock).mockReturnValue({
+        await (useFetchCoursesQuery as jest.Mock).mockReturnValue({
             data: mockCourses,
             error: undefined,
             isFetching: false,
         });
 
-        render(
-            <Provider store={store}>
-                <HomeComponent />
-            </Provider>
-        );
+        renderComponent();
+
         const sidebarComponent = screen.getByTestId("sidebar-component");
         const learningCourses = screen.getByTestId("learning-courses");
 

@@ -3,8 +3,7 @@ import { Course } from "../../util/Course";
 import LearningCourses from "../LearningCourses";
 import LearningCourseDetail from "../LearningCourseDetail";
 import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../../store";
+import Root from "../../Root";
 
 describe("LearningCourses", () => {
     let courses: Course[], wrapper: ShallowWrapper;
@@ -53,32 +52,37 @@ describe("LearningCourses", () => {
     });
 });
 
+function renderComponent(): Course[] {
+    const courses = [
+        {
+            id: "course1",
+            category: "Category 1",
+            modules: [
+                {
+                    id: "module1",
+                    topic: "Topic 1",
+                    progress: 50,
+                    missing: 2,
+                },
+            ],
+            imagePath: "course1.jpg",
+        },
+    ];
+
+    render(
+        <Root>
+            <LearningCourses courses={courses} />
+        </Root>
+    );
+
+    return courses;
+}
+
 describe("LearningCourses with RTL", () => {
     let courses: Course[];
-    beforeEach(() => {
-        courses = [
-            {
-                id: "course1",
-                category: "Category 1",
-                modules: [
-                    {
-                        id: "module1",
-                        topic: "Topic 1",
-                        progress: 50,
-                        missing: 2,
-                    },
-                ],
-                imagePath: "course1.jpg",
-            },
-        ];
-    });
 
     test("check if div and its heading are rendered properly", () => {
-        render(
-            <Provider store={store}>
-                <LearningCourses courses={courses} />
-            </Provider>
-        );
+        courses = renderComponent();
         const ms4Div = screen.getByTestId("ms-4");
         const headingElement = screen.getByText("e-Learning Courses");
         expect(ms4Div).toBeInTheDocument();
@@ -86,11 +90,7 @@ describe("LearningCourses with RTL", () => {
     });
 
     it("should render a list of LearningCourseDetail components", () => {
-        render(
-            <Provider store={store}>
-                <LearningCourses courses={courses} />
-            </Provider>
-        );
+        courses = renderComponent();
         // Check if the individual course details are rendered
         const learningCourseDetails = screen.getAllByTestId(
             "learning-course-detail"

@@ -2,9 +2,8 @@ import { ShallowWrapper, shallow } from "enzyme";
 import SidebarComponent from "../SidebarComponent";
 import { Course } from "../../util/Course";
 import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { store } from "../../store";
 import SidebarDetailComponent from "../SidebarDetail";
+import Root from "../../Root";
 
 describe("SidebarComponent", () => {
     let courses: Course[], wrapper: ShallowWrapper;
@@ -52,49 +51,46 @@ describe("SidebarComponent", () => {
     });
 });
 
+function renderComponent(): Course[] {
+    const courses = [
+        {
+            id: "course1",
+            category: "Category 1",
+            modules: [
+                {
+                    id: "module1",
+                    topic: "Topic 1",
+                    progress: 50,
+                    missing: 2,
+                },
+            ],
+            imagePath: "course1.jpg",
+        },
+    ];
+
+    render(
+        <Root>
+            <SidebarComponent courses={courses} />
+        </Root>
+    );
+
+    return courses;
+}
+
 describe("SidebarComponent with RTL", () => {
     let courses: Course[];
 
-    beforeEach(() => {
-        courses = [
-            {
-                id: "course1",
-                category: "Category 1",
-                modules: [
-                    {
-                        id: "module1",
-                        topic: "Topic 1",
-                        progress: 50,
-                        missing: 2,
-                    },
-                ],
-                imagePath: "course1.jpg",
-            },
-        ];
-    });
-
     test("check if div with class d-flex is rendered", () => {
-        render(
-            <Provider store={store}>
-                <SidebarComponent courses={courses} />{" "}
-            </Provider>
-        );
+        courses = renderComponent();
         const dFlexDiv = screen.getByTestId("d-flex");
         expect(dFlexDiv).toBeInTheDocument();
         expect(dFlexDiv).toHaveTextContent("Navigation");
     });
 
     test("renders SidebarDetailComponent for each given course passed via props", () => {
-        render(
-            <Provider store={store}>
-                <SidebarComponent courses={courses} />
-            </Provider>
-        );
-        courses.forEach((course) => {
-            const sidebarDetailComponent = screen.getByTestId(
-                `sidebar-detail-${course.category}`
-            );
-            expect(sidebarDetailComponent).toBeInTheDocument();
-        });
+        courses = renderComponent();
+        //check whether all instances of SidebarDetail are correctly rendered
+        const sidebarDetailComponents = screen.getAllByTestId(`sidebar-detail`);
+        expect(sidebarDetailComponents).toHaveLength(courses.length);
     });
 });

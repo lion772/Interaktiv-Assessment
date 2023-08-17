@@ -1,8 +1,7 @@
 import { shallow } from "enzyme";
 import { render, screen } from "@testing-library/react";
 import CourseProgress from "../CourseProgress";
-import { Provider } from "react-redux";
-import { store } from "../../store";
+import Root from "../../Root";
 
 describe("CourseProgress Component", () => {
     it("renders correct number of filled circles based on progress", () => {
@@ -31,9 +30,9 @@ describe("CourseProgress Component with RTL", () => {
 
         // Render the CourseProgress component
         render(
-            <Provider store={store}>
+            <Root>
                 <CourseProgress progress={progress} missing={missing} />
-            </Provider>
+            </Root>
         );
 
         // Check if the number of filled circles matches the expected number
@@ -44,7 +43,7 @@ describe("CourseProgress Component with RTL", () => {
         expect(paragraph).toBeInTheDocument();
 
         // Check if the missing value is displayed correctly
-        const missingText = screen.getAllByTestId("left");
-        expect(missingText).toHaveLength(1);
+        const missingTexts = screen.getAllByTestId("left");
+        expect(missingTexts).toHaveLength(1);
     });
 });

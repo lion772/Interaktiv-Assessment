@@ -1,8 +1,7 @@
 import { ShallowWrapper, shallow } from "enzyme";
 import { render, screen } from "@testing-library/react";
 import HomepageDescription from "../HomepageDescription";
-import { Provider } from "react-redux";
-import { store } from "../../store";
+import Root from "../../Root";
 
 describe("HomepageDescription Component", () => {
     let wrapper: ShallowWrapper;
@@ -22,13 +21,13 @@ describe("HomepageDescription Component", () => {
     });
 });
 
-describe("HomepageDescription Component using Jest / RTK", () => {
+describe("HomepageDescription Component using Jest / RTL", () => {
     test("renders the correct text content in the corresponding classes", () => {
         // Render the component with Redux Provider and your store
         render(
-            <Provider store={store}>
+            <Root>
                 <HomepageDescription />
-            </Provider>
+            </Root>
         );
 
         // Find the first div containing the text content

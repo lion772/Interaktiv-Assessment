@@ -8,8 +8,8 @@ interface LearningCourseInt {
 
 const LearningCourses: FC<LearningCourseInt> = ({ courses }) => {
     const learningCourseDetail = (courses as Course[]).map((course) => (
-        <div data-testid={`learning-course-detail`}>
-            <LearningCourseDetail key={course.id} course={course} />
+        <div key={course.id} data-testid={`learning-course-detail`}>
+            <LearningCourseDetail course={course} />
         </div>
     ));
     return (
