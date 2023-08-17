@@ -9,8 +9,8 @@ interface SidebarComponentInt {
 
 const SidebarComponent: FC<SidebarComponentInt> = ({ courses }) => {
     const sidebarDetail = (courses as Course[]).map((course) => (
-        <div data-testid={`sidebar-detail-${course.category}`}>
-            <SidebarDetailComponent key={course.id} course={course} />
+        <div key={course.id} data-testid={`sidebar-detail`}>
+            <SidebarDetailComponent course={course} />
         </div>
     ));
     return (

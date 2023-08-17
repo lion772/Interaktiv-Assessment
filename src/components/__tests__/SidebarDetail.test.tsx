@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import SidebarDetailComponent from "../SidebarDetail";
 import { Provider } from "react-redux";
 import { store } from "../../store";
+import Root from "../../Root";
 
 describe("SidebarDetailComponent", () => {
     let wrapper: ShallowWrapper;
@@ -55,9 +56,9 @@ describe("SidebarDetailComponent with RTL", () => {
 
     test("check if div exists and contains data passed via props", () => {
         render(
-            <Provider store={store}>
+            <Root>
                 <SidebarDetailComponent course={course} />
-            </Provider>
+            </Root>
         );
 
         // Check if the div with the class "imageContainer" exists and contains category

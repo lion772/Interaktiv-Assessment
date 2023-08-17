@@ -4,16 +4,18 @@ import "semantic-ui-css/semantic.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavbarComponent";
 import HomepageDescription from "./components/HomepageDescription";
-import SidebarComponent from "./components/SidebarComponent";
 import HomeComponent from "./components/HomeComponent";
-import Root from "./Root";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App" data-testid="navbar">
             <NavbarComponent>
-                <HomepageDescription />
-                <HomeComponent />
+                <div data-testid="home-page">
+                    <HomepageDescription />
+                </div>
+                <div data-testid="home">
+                    <HomeComponent />
+                </div>
             </NavbarComponent>
         </div>
     );

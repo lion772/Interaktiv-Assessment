@@ -3,8 +3,7 @@ import { shallow } from "enzyme";
 import { render, screen } from "@testing-library/react";
 import LearningCourseDetail from "../LearningCourseDetail";
 import CourseProgress from "../CourseProgress";
-import { Provider } from "react-redux";
-import { store } from "../../store";
+import Root from "../../Root";
 
 describe("LearningCourseDetail Component", () => {
     const mockCourse = {
@@ -52,7 +51,7 @@ describe("LearningCourseDetail Component", () => {
     });
 });
 
-describe("LearningCourseDetail Component jest", () => {
+describe("LearningCourseDetail Component RTL", () => {
     const mockCourse = {
         id: "courseId",
         category: "Course Category",
@@ -66,12 +65,12 @@ describe("LearningCourseDetail Component jest", () => {
 
     test("renders the modules and CourseProgress correctly", () => {
         render(
-            <Provider store={store}>
+            <Root>
                 <LearningCourseDetail course={mockCourse} />
-            </Provider>
+            </Root>
         );
 
-        // Check if module topics are rendered correctly
+        // Check if module topics are correctly rendered
         modules.forEach((module) => {
             expect(screen.getByText(module.topic)).toBeInTheDocument();
         });
